@@ -1,43 +1,49 @@
-import React from 'react';
-import classes from './burgerIngridient.module.css';
-import {PropsType} from 'prop-types';
-const burgerIngridient=(props)=>{
- let ingridient=null;
+import React, {Component} from 'react';
+import classes from './BurgerIngriedient.module.css';
+import PropTypes from 'prop-types';
+class BurgerIngridient extends Component{
+ 
+ render(){
+    let ingridient=null;
 
- switch(props.type){
-    case('bread-bottom'):
-       ingridient=<div className={classes.BreadBottom}></div> ;
-       break;
-    case('bread-top'):
-       ingridient=(<div className={classes.BreadTop}>
-                     <div className={classes.Seeds1}></div>  
-                     <div className={classes.Seeds2}></div> 
-                   </div>
-                ); 
-        break;
-    case('meat'):
-        ingridient=<div className={classes.Meat}></div>;
-        break;
-    case('cheese '):
-        ingridient=<div className={classes.Cheese}></div>; 
-        break;
-    case('salad'):
-        ingridient=<div className={classes.Salad}></div>;
-        break;
-    case('bacon'):
-        ingridient=<div className={classes.Salad}></div>; 
-        break;
-    default:
-        ingridient=null;       
+    switch(this.props.type){
+       case('bread-bottom'):
+          ingridient=<div className={classes.BreadBottom}></div> ;
+          break;
+       case('bread-top'):
+          ingridient=(<div className={classes.BreadTop}>
+                        <div className={classes.Seeds1}></div>  
+                        <div className={classes.Seeds2}></div> 
+                      </div>
+                   ); 
+           break;
+       case('meat'):
+           ingridient=<div className={classes.Meat}></div>;
+           break;
+       case('cheese'):
+           ingridient=<div className={classes.Cheese}></div>; 
+           break;
+       case('salad'):
+           ingridient=<div className={classes.Salad}></div>;
+           break;
+       case('bacon'):
+           ingridient=<div className={classes.Bacon}></div>; 
+           break;
+       default:
+           ingridient=null;       
+    }
+     
+   return ingridient;
+   
+
+
  }
-  
-return ingridient;
-
+ 
+ 
 }
+BurgerIngridient.propTypes={
+type:PropTypes.string.isRequired
 
-burgerIngridient.propsType={
- type:PropsType.string.isRequired
+};
 
-}
-
-export default burgerIngridient;
+export default BurgerIngridient;
