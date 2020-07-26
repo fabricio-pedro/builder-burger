@@ -21,6 +21,11 @@ import classes from './BuildControls.module.css';
              subIng={()=>props.subIngridient(ctrl.type)}
              disabled={props.disable[ctrl.type]} />
           ))}
+
+          <button 
+            className={classes.OrderButton}
+            disabled={!props.purchasable}  
+             onClick={props.purchasing} >ORDER NOW</button>
         </div>
     );
 
